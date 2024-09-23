@@ -1,4 +1,5 @@
 from classes.menu import Menu
+from online_retailer import login
 
 class TextInputMenu(Menu):
     def __init__(self, name, description, input_queries):
@@ -19,6 +20,7 @@ class TextInputMenu(Menu):
 
 class RegistrationMenu(TextInputMenu):
     def apply_user_input(self):
+        login("user")
         pass #write username and password
     
 class LoginMenu(TextInputMenu):

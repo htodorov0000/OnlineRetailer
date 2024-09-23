@@ -18,13 +18,19 @@ security_menu.menu_items = ["Security ON", "Security OFF"]
 landing_menu.options = [registration_menu, login_menu]
 
 
-#Security:
-security_menu.start()
-security = security_menu.setting
-
 #TODO: Change settings depending on security and login here
 
 
+#Login:
+
+def login(user_type):
+    logged_in = True
+    admin = False
+    print("hi")
+
+#Security:
+security_menu.start()
+security = security_menu.setting
 
 #Start:
 landing_menu.start()
