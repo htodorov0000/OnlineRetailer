@@ -1,2 +1,5 @@
-.vs/*
-OnlineRetailer/.vs/*
+
+/.vs
+/OnlineRetailer/.vs
+/OnlineRetailer/__pycache__
+/OnlineRetailer/.vs
