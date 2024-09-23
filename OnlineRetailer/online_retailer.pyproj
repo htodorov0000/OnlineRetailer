@@ -22,10 +22,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="menu_classes.py">
+    <Compile Include="classes\numbered_menu.py" />
+    <Compile Include="classes\text_input_menu.py" />
+    <Compile Include="classes\menu.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="online_retailer.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

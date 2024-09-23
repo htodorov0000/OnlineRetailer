@@ -1,47 +1,5 @@
-class Menu:
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
-    
-    def start(self):
-        self.draw_menu()
-    
-    def draw_name_and_description(self):
-        print()
-        print("***" + self.name.upper() + "***")
-        print()
-        if self.description != "": #Print description if it isn't empty.
-            print(self.description)
-            print()
+from classes.menu import Menu
 
-    def draw_menu(self):
-        self.draw_name_and_description()
-
-class TextInputMenu(Menu):
-    def __init__(self, name, description, input_queries):
-        self.input_queries = input_queries
-        self.user_input = []
-        super().__init__(name, description)
-
-    def draw_menu(self):
-        while True:
-            self.draw_name_and_description()
-            for num, query in enumerate(self.input_queries):
-                user_input = input(query + ": ")
-                self.user_input.append(user_input)
-            self.apply_user_input()
-
-    def apply_user_input(self):
-        pass
-
-class RegistrationMenu(TextInputMenu):
-    def apply_user_input(self):
-        pass #write username and password
-    
-class LoginMenu(TextInputMenu):
-    def apply_user_input(self):
-        pass #check username and password
-                
 class NumberedMenu(Menu):
     INVALID_INPUT: str = "Invalid input type. Try again."
     INVALID_RANGE: str = "Please input a number in the correct range."

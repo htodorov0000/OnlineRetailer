@@ -1,6 +1,5 @@
-from menu_classes import LoginMenu, RegistrationMenu, SettingBoolMenu
-from menu_classes import NavigationMenu
-from menu_classes import TextInputMenu
+from classes.text_input_menu import LoginMenu, RegistrationMenu
+from classes.numbered_menu import NavigationMenu, SettingBoolMenu
 
 DEFAULT_DESCRIPTION = "Please select the desired menu."
 SECURITY_DESCRIPTION = "Please select the desired security setting."
