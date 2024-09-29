@@ -10,6 +10,7 @@ LOGIN_DESCRIPTION = "Please input your username and password."
 #Declare objects:
 
 database_manager = DatabaseManager()
+database_manager.print_user_data() #debug
 security_menu = SettingBoolMenu("Security Mode", SECURITY_DESCRIPTION)     
 landing_menu = NavigationMenu("Landing", DEFAULT_DESCRIPTION)
 registration_menu = RegistrationMenu("Sign Up", REGISTRATION_DESCRIPTION, ["Username" , "Password"], database_manager)

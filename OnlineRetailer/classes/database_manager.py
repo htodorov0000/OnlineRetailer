@@ -14,3 +14,8 @@ class DatabaseManager:
                     return True
             return False
             
+    def print_user_data(self):
+        with open("database/account_data.csv", "r", newline = "") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row)
