@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="classes\hasher.py" />
     <Compile Include="classes\database_manager.py" />
+    <Compile Include="classes\account_manager.py" />
     <Compile Include="classes\numbered_menu.py" />
     <Compile Include="classes\text_input_menu.py" />
     <Compile Include="classes\menu.py">

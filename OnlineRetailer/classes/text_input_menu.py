@@ -3,21 +3,21 @@ from classes.hasher import Hasher
 import os
 
 class TextInputMenu(Menu):
-    def __init__(self, name, description, input_queries, database_manager, previous_menu):
+    def __init__(self, name, description, account, input_queries, database_manager, previous_menu):
         self.input_queries = input_queries
         self.user_input = []
         self.database_manager = database_manager
         self.previous_menu = previous_menu
-        super().__init__(name, description)
+        super().__init__(name, description, account)
 
     def draw_menu(self):
         self.draw_name_and_description()
         for query in self.input_queries:
-            while True:
-                user_input = input(query + ": ")
-                if self.input_restriction(user_input, query):
-                    self.user_input.append(user_input)
-                    break
+            user_input = input(query + ": ")
+            if self.input_restriction(user_input, query):
+                self.user_input.append(user_input)
+            else:
+                self.previous_menu.start()
         self.apply_user_input()
         self.previous_menu.start()
 
@@ -61,7 +61,7 @@ class LoginMenu(TextInputMenu):
     user_data = []    
 
     def apply_user_input(self):
-        pass #check username and password
+        self.account.login(self.user_data["Username"], self.user_data["Admin"])
     
     def input_restriction(self, user_input, query):
         if query == "Username":

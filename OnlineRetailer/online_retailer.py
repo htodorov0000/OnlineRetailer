@@ -1,3 +1,4 @@
+from classes.account_manager import AccountManager
 from classes.database_manager import DatabaseManager
 from classes.text_input_menu import LoginMenu, RegistrationMenu
 from classes.numbered_menu import NavigationMenu, SettingBoolMenu
@@ -8,12 +9,13 @@ REGISTRATION_DESCRIPTION = "Please create a new username and password."
 LOGIN_DESCRIPTION = "Please input your username and password."
 #Declare objects:
 
+account_manager = AccountManager()
 database_manager = DatabaseManager()
 database_manager.print_user_data() #debug
-security_menu = SettingBoolMenu("Security Mode", SECURITY_DESCRIPTION)     
-landing_menu = NavigationMenu("Landing", DEFAULT_DESCRIPTION)
-registration_menu = RegistrationMenu("Sign Up", REGISTRATION_DESCRIPTION, ["Username" , "Password"], database_manager, landing_menu)
-login_menu = LoginMenu("Login", LOGIN_DESCRIPTION, ["Username" , "Password"], database_manager, landing_menu)
+security_menu = SettingBoolMenu("Security Mode", SECURITY_DESCRIPTION, account_manager)     
+landing_menu = NavigationMenu("Landing", DEFAULT_DESCRIPTION, account_manager)
+registration_menu = RegistrationMenu("Sign Up", REGISTRATION_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, landing_menu)
+login_menu = LoginMenu("Login", LOGIN_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, landing_menu)
 
 #Define menu paths:
 security_menu.menu_items = ["Security ON", "Security OFF"]

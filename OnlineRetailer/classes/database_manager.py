@@ -4,7 +4,7 @@ class DatabaseManager:
     def create_account(self, username, password, salt):
         with open("database/account_data.csv", "a", newline = "") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([username, "No", password, salt])
+            writer.writerow([username, "False", password, salt])
                 
     def is_username_taken(self, username):
         with open("database/account_data.csv", "r", newline = "") as csvfile:

@@ -3,11 +3,11 @@ from classes.menu import Menu
 class NumberedMenu(Menu):
     INVALID_INPUT: str = "Invalid input type. Try again."
     INVALID_RANGE: str = "Please input a number in the correct range."
-    def __init__(self, name, description):
+    def __init__(self, name, description, account):
         self.user_input: int
         self.menu_items = []
         self.options = []
-        super().__init__(name, description)
+        super().__init__(name, description, account)
 
     def draw_menu(self):
         menu_string = ""
@@ -32,10 +32,10 @@ class NumberedMenu(Menu):
         pass
     
 class SettingBoolMenu(NumberedMenu):   
-    def __init__(self, name, description):
+    def __init__(self, name, description, account):
         self.menu_items = []
         self.setting: int
-        super().__init__(name, description)
+        super().__init__(name, description, account)
 
     def apply_chosen_option(self):
         if self.user_input == 1:
@@ -44,9 +44,6 @@ class SettingBoolMenu(NumberedMenu):
             self.setting = False
         
 class NavigationMenu(NumberedMenu):
-    def __init__(self, name, description):
-        super().__init__(name, description)
-    
     def start(self):
         menu_name_array = []
         for menu in self.options:
