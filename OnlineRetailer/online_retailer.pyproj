@@ -25,6 +25,7 @@
     <Compile Include="classes\hasher.py" />
     <Compile Include="classes\database_manager.py" />
     <Compile Include="classes\account_manager.py" />
+    <Compile Include="classes\menu_object_manager.py" />
     <Compile Include="classes\numbered_menu.py" />
     <Compile Include="classes\text_input_menu.py" />
     <Compile Include="classes\menu.py">
@@ -35,6 +36,9 @@
   <ItemGroup>
     <Folder Include="classes\" />
     <Folder Include="database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="database\account_data.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

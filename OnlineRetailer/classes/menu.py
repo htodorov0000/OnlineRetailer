@@ -12,7 +12,7 @@ class Menu:
         if self.account.logged_in:
             print("                                                 User:", self.account.username)
         else: 
-            print("                                                 User: Guest")
+            print("                                                 Guest")
         if self.account.admin:
             print("                                                 (Admin Account)")
         print()

@@ -4,27 +4,15 @@ from classes.menu_object_manager import MenuObjectManager
 
 account_manager = AccountManager()
 database_manager = DatabaseManager()
-menu_object_manager = MenuObjectManager()
-database_manager.print_user_data() #debug
-
-#Define menu paths:
-security_menu.menu_items = ["Security ON", "Security OFF"]
-landing_menu.options = [registration_menu, login_menu]
+menu_object_manager = MenuObjectManager(account_manager, database_manager)
+account_manager.set_menu_object_manager(menu_object_manager)
 
 
 #TODO: Change settings depending on security and login here
-    
-
-#Login:
-
-def login(user_type):
-    logged_in = True
-    admin = False
-    print("hi")
 
 #Security:
-security_menu.start()
-security = security_menu.setting
+menu_object_manager.security_menu.start()
+menu_object_manager.security = menu_object_manager.security_menu.setting
 
 #Start:
-landing_menu.start()
+menu_object_manager.landing_menu.start()
