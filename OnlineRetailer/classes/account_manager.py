@@ -14,3 +14,5 @@ class AccountManager:
         self.admin = False
         self.logged_in = False
     
+    def user_permissions(self):
+        pass
