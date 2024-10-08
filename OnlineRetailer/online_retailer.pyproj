@@ -26,6 +26,9 @@
     <Compile Include="classes\database_manager.py" />
     <Compile Include="classes\account_manager.py" />
     <Compile Include="classes\menu_object_manager.py" />
+    <Compile Include="classes\logout_option.py" />
+    <Compile Include="classes\security_manager.py" />
+    <Compile Include="classes\security_menu_option.py" />
     <Compile Include="classes\numbered_menu.py" />
     <Compile Include="classes\text_input_menu.py" />
     <Compile Include="classes\menu.py">
@@ -35,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="classes\" />
+    <Folder Include="classes\menu_classes\" />
     <Folder Include="database\" />
   </ItemGroup>
   <ItemGroup>

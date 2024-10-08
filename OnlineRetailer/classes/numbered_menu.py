@@ -30,18 +30,6 @@ class NumberedMenu(Menu):
                 
     def apply_chosen_option(self):
         pass
-    
-class SettingBoolMenu(NumberedMenu):   
-    def __init__(self, name, description, account):
-        self.menu_items = []
-        self.setting: int
-        super().__init__(name, description, account)
-
-    def apply_chosen_option(self):
-        if self.user_input == 1:
-            self.setting = True
-        elif self.user_input == 2:
-            self.setting = False
         
 class NavigationMenu(NumberedMenu):
     def start(self):

@@ -3,6 +3,7 @@ class Menu:
         self.name = name
         self.description = description
         self.account = account
+        self.options = []
     
     def start(self):
         self.draw_menu()
