@@ -1,4 +1,6 @@
 import csv
+from re import S
+from classes.menu_options.user_list_option import UserListOption
 class DatabaseManager:
 
     def create_account(self, username, password, salt):
@@ -60,4 +62,35 @@ class DatabaseManager:
         i = data[1]
         data_list[i][2] = password
         data_list[i][3] = salt
+        self.rewrite_file(data_list)
+        
+    def get_user_list(self, account, landing):
+        csvfile = open("database/account_data.csv", "r", newline = "")
+        reader = csv.reader(csvfile)
+        data_list = list(reader)
+        user_option_array = []
+        for i, row in enumerate(data_list):
+            if i != 0 and row[0] != account.username:
+                user_option = UserListOption(row[0], "", account, landing, self)
+                user_option_array.append(user_option)
+        return user_option_array
+    
+    def is_user_admin(self, username):
+        data = self.find_user_row(username)
+        data_list = data[0]
+        i = data[1]
+        return eval(data_list[i][1]) 
+    
+    def promote_to_admin(self, username):
+        data = self.find_user_row(username)
+        data_list = data[0]
+        i = data[1]
+        data_list[i][1] = True
+        self.rewrite_file(data_list)
+        
+    def demote_from_admin(self, username):
+        data = self.find_user_row(username)
+        data_list = data[0]
+        i = data[1]
+        data_list[i][1] = False
         self.rewrite_file(data_list)

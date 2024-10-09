@@ -9,9 +9,12 @@ class AccountManager:
 
     def login(self, username, admin):
         self.username = username
-        self.admin = eval(admin.capitalize())
+        if admin == "True":
+            self.admin = True
+        elif admin == "False":
+            self.admin = False
         self.logged_in = True
-        if admin:
+        if self.admin == True:
             self.menu_object_manager.admin_menu_options()
         else:
             self.menu_object_manager.user_menu_options()

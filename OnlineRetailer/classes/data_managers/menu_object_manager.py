@@ -1,3 +1,4 @@
+from classes.menu_classes.user_list_menu import UserListMenu
 from classes.menu_options.buy_option import BuyOption
 from classes.menu_options.remove_card_details_option import RemoveCardDetailsOption
 from classes.menu_options.logout_option import LogoutOption
@@ -28,6 +29,8 @@ class MenuObjectManager():
         self.add_new_card_option = AddCardMenu("Add New Card", "Add new card (note: this will overwrite any previous card details).", account_manager, ["First Name", "Last Name", "Card Number (Without Hyphens)", "Expiration Date (mm/yy)", "CVC Code"] , database_manager, self.account_settings_menu)
         self.remove_card_option = RemoveCardDetailsOption("Remove Card", "Remove card currently on account.", account_manager, database_manager, self.account_settings_menu)
 
+        self.user_list_menu = UserListMenu("(ADMIN ONLY) User List", "Please select a user (ADMIN ONLY MENU).", account_manager, database_manager, self.landing_menu)
+
         self.products_menu = NavigationMenu("Products", self.PRODUCTS_DESCRIPTION, account_manager)
         self.buy = BuyOption("Buy", "desc", account_manager, database_manager, self.products_menu)
         self.product1_menu = Product("Product 1", "Product Description.", account_manager, 49.99, self.buy, self.products_menu)
@@ -39,12 +42,15 @@ class MenuObjectManager():
         #Define menu paths:
         self.DEFAULT_LANDING_OPTIONS = [self.registration_menu, self.login_menu]
         self.USER_LANDING_OPTIONS = [self.products_menu, self.account_settings_menu, self.logout_option]
+        self.ADMIN_LANDING_OPTIONS = [self.products_menu, self.account_settings_menu, self.user_list_menu , self.logout_option]
 
         self.security_menu.options = [self.security_on_option, self.security_off_option]
         
         self.landing_menu.options = [self.registration_menu, self.login_menu]
         
         self.account_settings_menu.options = [self.change_password_option, self.add_new_card_option, self.remove_card_option, self.landing_menu]
+        
+        self.user_list_menu.options = database_manager.get_user_list(account_manager, self.landing_menu)
         
         self.products_menu.options = [self.product1_menu, self.product2_menu, self.landing_menu]
 
@@ -55,4 +61,4 @@ class MenuObjectManager():
         self.landing_menu.options = self.USER_LANDING_OPTIONS
         
     def admin_menu_options(self):
-        self.landing_menu.options = self.USER_LANDING_OPTIONS
+        self.landing_menu.options = self.ADMIN_LANDING_OPTIONS

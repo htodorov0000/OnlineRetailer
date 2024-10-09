@@ -26,10 +26,12 @@
     <Compile Include="classes\data_managers\database_manager.py" />
     <Compile Include="classes\data_managers\account_manager.py" />
     <Compile Include="classes\data_managers\menu_object_manager.py" />
+    <Compile Include="classes\menu_classes\user_list_menu.py" />
     <Compile Include="classes\menu_classes\product.py" />
     <Compile Include="classes\menu_options\logout_option.py" />
     <Compile Include="classes\data_managers\security_manager.py" />
     <Compile Include="classes\menu_options\buy_option.py" />
+    <Compile Include="classes\menu_options\user_list_option.py" />
     <Compile Include="classes\menu_options\remove_card_details_option.py" />
     <Compile Include="classes\menu_options\security_menu_option.py" />
     <Compile Include="classes\menu_classes\numbered_menu.py" />
