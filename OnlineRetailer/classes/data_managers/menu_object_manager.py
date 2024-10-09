@@ -1,7 +1,10 @@
-from classes.logout_option import LogoutOption
-from classes.security_menu_option import SecurityMenuOption
-from classes.text_input_menu import LoginMenu, RegistrationMenu
-from classes.numbered_menu import NavigationMenu
+from classes.menu_options.buy_option import BuyOption
+from classes.menu_options.remove_card_details_option import RemoveCardDetailsOption
+from classes.menu_options.logout_option import LogoutOption
+from classes.menu_options.security_menu_option import SecurityMenuOption
+from classes.menu_classes.text_input_menu import AddCardMenu, ChangePassword, LoginMenu, RegistrationMenu
+from classes.menu_classes.numbered_menu import NavigationMenu
+from classes.menu_classes.product import Product
 
 class MenuObjectManager():
     DEFAULT_DESCRIPTION = "Please select the desired menu."
@@ -21,28 +24,29 @@ class MenuObjectManager():
         
         self.logout_option = LogoutOption("Log Out", self.LOGOUT_DESCRIPTION, account_manager, self.landing_menu)
         self.account_settings_menu = NavigationMenu("Account Settings", "Change your account settings here.", account_manager)
-        self.payment_settings_menu = NavigationMenu("Payment Settings", "Change your payment details here.", account_manager)
+        self.change_password_option = ChangePassword("Change Password", "Change your password", account_manager, ["Old Password", "New Password"],database_manager, self.account_settings_menu)
+        self.add_new_card_option = AddCardMenu("Add New Card", "Add new card (note: this will overwrite any previous card details).", account_manager, ["First Name", "Last Name", "Card Number (Without Hyphens)", "Expiration Date (mm/yy)", "CVC Code"] , database_manager, self.account_settings_menu)
+        self.remove_card_option = RemoveCardDetailsOption("Remove Card", "Remove card currently on account.", account_manager, database_manager, self.account_settings_menu)
 
         self.products_menu = NavigationMenu("Products", self.PRODUCTS_DESCRIPTION, account_manager)
-        self.product1_menu = NavigationMenu("Product1", "" , account_manager)
-        self.product2_menu = NavigationMenu("Product2", "" , account_manager)
+        self.buy = BuyOption("Buy", "desc", account_manager, database_manager, self.products_menu)
+        self.product1_menu = Product("Product 1", "Product Description.", account_manager, 49.99, self.buy, self.products_menu)
+        self.product2_menu = Product("Product 2", "Product Description.", account_manager, 12.99, self.buy, self.products_menu)
 
         self.registration_menu = RegistrationMenu("Sign Up", self.REGISTRATION_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, self.landing_menu)
         self.login_menu = LoginMenu("Login", self.LOGIN_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, self.landing_menu)
 
         #Define menu paths:
         self.DEFAULT_LANDING_OPTIONS = [self.registration_menu, self.login_menu]
-        self.USER_LANDING_OPTIONS = [self.products_menu, self.logout_option, self.account_settings_menu]
+        self.USER_LANDING_OPTIONS = [self.products_menu, self.account_settings_menu, self.logout_option]
 
         self.security_menu.options = [self.security_on_option, self.security_off_option]
         
         self.landing_menu.options = [self.registration_menu, self.login_menu]
         
-        self.account_settings_menu.options = [self.payment_settings_menu]
+        self.account_settings_menu.options = [self.change_password_option, self.add_new_card_option, self.remove_card_option, self.landing_menu]
         
-        self.products_menu.options = [self.landing_menu, self.product1_menu, self.product2_menu]
-        self.product1_menu.options = [self.landing_menu]
-        self.product2_menu.options = [self.landing_menu]
+        self.products_menu.options = [self.product1_menu, self.product2_menu, self.landing_menu]
 
     def guest_menu_options(self):
         self.landing_menu.options = self.DEFAULT_LANDING_OPTIONS

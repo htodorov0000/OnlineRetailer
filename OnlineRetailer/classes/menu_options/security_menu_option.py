@@ -1,4 +1,4 @@
-from classes.menu import Menu
+from classes.menu_classes.menu import Menu
 
 class SecurityMenuOption(Menu):
     def __init__(self, name, description, account, security_manager, selection):

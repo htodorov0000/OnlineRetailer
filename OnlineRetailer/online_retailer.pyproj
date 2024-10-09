@@ -23,15 +23,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="classes\hasher.py" />
-    <Compile Include="classes\database_manager.py" />
-    <Compile Include="classes\account_manager.py" />
-    <Compile Include="classes\menu_object_manager.py" />
-    <Compile Include="classes\logout_option.py" />
-    <Compile Include="classes\security_manager.py" />
-    <Compile Include="classes\security_menu_option.py" />
-    <Compile Include="classes\numbered_menu.py" />
-    <Compile Include="classes\text_input_menu.py" />
-    <Compile Include="classes\menu.py">
+    <Compile Include="classes\data_managers\database_manager.py" />
+    <Compile Include="classes\data_managers\account_manager.py" />
+    <Compile Include="classes\data_managers\menu_object_manager.py" />
+    <Compile Include="classes\menu_classes\product.py" />
+    <Compile Include="classes\menu_options\logout_option.py" />
+    <Compile Include="classes\data_managers\security_manager.py" />
+    <Compile Include="classes\menu_options\buy_option.py" />
+    <Compile Include="classes\menu_options\remove_card_details_option.py" />
+    <Compile Include="classes\menu_options\security_menu_option.py" />
+    <Compile Include="classes\menu_classes\numbered_menu.py" />
+    <Compile Include="classes\menu_classes\text_input_menu.py" />
+    <Compile Include="classes\menu_classes\menu.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="online_retailer.py" />
@@ -39,9 +42,12 @@
   <ItemGroup>
     <Folder Include="classes\" />
     <Folder Include="classes\menu_classes\" />
+    <Folder Include="classes\data_managers\" />
+    <Folder Include="classes\menu_options\" />
     <Folder Include="database\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="database\account_data - Copy.csv" />
     <Content Include="database\account_data.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

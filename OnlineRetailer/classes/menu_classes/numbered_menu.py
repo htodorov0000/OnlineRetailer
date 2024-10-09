@@ -1,4 +1,4 @@
-from classes.menu import Menu
+from classes.menu_classes.menu import Menu
 
 class NumberedMenu(Menu):
     INVALID_INPUT: str = "Invalid input type. Try again."
@@ -6,7 +6,6 @@ class NumberedMenu(Menu):
     def __init__(self, name, description, account):
         self.user_input: int
         self.menu_items = []
-        self.options = []
         super().__init__(name, description, account)
 
     def draw_menu(self):

@@ -1,7 +1,7 @@
-from classes.account_manager import AccountManager
-from classes.database_manager import DatabaseManager
-from classes.menu_object_manager import MenuObjectManager
-from classes.security_manager import SecurityManager
+from classes.data_managers.account_manager import AccountManager
+from classes.data_managers.database_manager import DatabaseManager
+from classes.data_managers.menu_object_manager import MenuObjectManager
+from classes.data_managers.security_manager import SecurityManager
 
 security_manager = SecurityManager()
 account_manager = AccountManager()
