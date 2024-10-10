@@ -9,9 +9,9 @@ class AccountManager:
 
     def login(self, username, admin):
         self.username = username
-        if admin == "True":
+        if admin == "TRUE":
             self.admin = True
-        elif admin == "False":
+        elif admin == "FALSE":
             self.admin = False
         self.logged_in = True
         if self.admin == True:

@@ -56,6 +56,7 @@ class RegistrationMenu(TextInputMenu):
         salt = os.urandom(32)
         password_hash = Hasher.hash(self.user_input[1], salt)
         self.database_manager.create_account(username, password_hash, salt)
+        self.user_input = []
         print("Account created successfully!")
         
 class LoginMenu(TextInputMenu):

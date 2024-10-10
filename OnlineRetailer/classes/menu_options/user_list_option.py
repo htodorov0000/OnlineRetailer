@@ -4,9 +4,9 @@ from classes.menu_classes.numbered_menu import NavigationMenu
 class UserListOption(NavigationMenu):
     def __init__(self, name, description, account, landing, database):
         description = "Choose what to do with this user: " + name
-        user_delete = UserDeleteOption("Delete Account", "desc", account, self, database, name)
-        user_promote = UserPromoteOption("Promote Account To Admin", "desc", account, self, database,name)
-        user_demote = UserDemoteOption("Demote Account From Admin", "desc", account, self, database,name)
+        user_delete = UserDeleteOption("Delete Account", "desc", account, landing, database, name)
+        user_promote = UserPromoteOption("Promote Account To Admin", "desc", account, landing, database,name)
+        user_demote = UserDemoteOption("Demote Account From Admin", "desc", account, landing, database,name)
         if database.is_user_admin(name):
             name += " (ADMIN)"
         self.options = [user_delete, user_promote, user_demote, landing]
@@ -20,7 +20,8 @@ class UserDeleteOption(Menu):
         super().__init__(name, description, account)
     
     def start(self):
-        pass #Delete
+        self.database.delete_user(self.username)
+        self.return_menu.start()
     
 class UserPromoteOption(Menu):
     def __init__(self, name, description, account, return_menu, database, username):

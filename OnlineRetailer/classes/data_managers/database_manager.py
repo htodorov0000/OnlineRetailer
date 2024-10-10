@@ -6,7 +6,7 @@ class DatabaseManager:
     def create_account(self, username, password, salt):
         with open("database/account_data.csv", "a", newline = "") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([username, "False", password, salt, "", ""])
+            writer.writerow([username, "FALSE", password, salt, "", ""])
         csvfile.close()
     
     def is_username_taken(self, username):
@@ -79,18 +79,27 @@ class DatabaseManager:
         data = self.find_user_row(username)
         data_list = data[0]
         i = data[1]
-        return eval(data_list[i][1]) 
+        if data_list[i][1] == "TRUE":
+            return True
+        return False
+    
+    def delete_user(self,username):
+        data = self.find_user_row(username)
+        data_list = data[0]
+        i = data[1]
+        data_list.pop(i)
+        self.rewrite_file(data_list)
     
     def promote_to_admin(self, username):
         data = self.find_user_row(username)
         data_list = data[0]
         i = data[1]
-        data_list[i][1] = True
+        data_list[i][1] = "TRUE"
         self.rewrite_file(data_list)
         
     def demote_from_admin(self, username):
         data = self.find_user_row(username)
         data_list = data[0]
         i = data[1]
-        data_list[i][1] = False
+        data_list[i][1] = "FALSE"
         self.rewrite_file(data_list)
