@@ -5,7 +5,7 @@ The command line interface requires the user to input a number to navigate to th
 
 For example, on startup, you will be prompted to pick a security mode. Inputting 1 will turn security on, and inputting 2 will turn it off:
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.001.png)
+![](./Screenshots/Screenshot1.png)
 
 The security setting cannot be changed after startup, the program will need to be turned off and back on to switch to a different security mode.
 # Signing up and logging in
