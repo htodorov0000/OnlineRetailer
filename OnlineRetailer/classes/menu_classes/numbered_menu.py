@@ -40,7 +40,6 @@ class NumberedMenu(Menu):
 class NavigationMenu(NumberedMenu):
     """Class which allows navigation between menus and selection of options."""
     def __init__(self, name, description, account):
-        self.options = []
         super().__init__(name, description, account)
 
     def start(self):

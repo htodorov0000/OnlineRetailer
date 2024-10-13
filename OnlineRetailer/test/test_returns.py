@@ -52,8 +52,9 @@ class TestAddCardMenu(unittest.TestCase):
 class TestHasher(unittest.TestCase):
      def test_hash(self):
          hasher = Hasher()
-         salt = os.urandom(32)
-         self.assertEqual(hasher.hash("Password23232", salt), hasher.hash("Password23232", salt))
+         salt = "b'\xbdF\x07/\xdaC\xbde\xa4\xaf\xeac\xd5d5\x1d\xcer\xe1\x86x\xb1\xf9\x14\x1c\x88\x7fg\x1e\xb0\xb7\xa4".encode("utf-8")
+         self.assertEqual(hasher.hash("Pas$w0rd1919", salt), hasher.hash("Pas$w0rd1919", salt))
+         self.assertEqual(hasher.hash("Pas$w0rd1919", salt), "a")
                 
 if __name__ == "__main__":
     unittest.main()

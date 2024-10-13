@@ -5,6 +5,7 @@ from classes.data_managers.database_manager import DatabaseManager
 from classes.data_managers.menu_object_manager import MenuObjectManager
 from classes.data_managers.security_manager import SecurityManager
 
+#Create objects for data management:
 account_manager = AccountManager()
 database_manager = DatabaseManager()
 security_manager = SecurityManager(database_manager)
