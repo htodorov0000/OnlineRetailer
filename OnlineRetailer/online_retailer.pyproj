@@ -49,8 +49,9 @@
     <Folder Include="database\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="database\account_data - Copy.csv" />
-    <Content Include="database\account_data.csv" />
+    <Content Include="database\account_data_insecure.csv" />
+    <Content Include="database\account_data_secure.csv" />
+    <Content Include="database\account_data_template.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
