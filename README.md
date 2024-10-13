@@ -13,23 +13,23 @@ After picking the security setting, you will be placed onto the landing page, wh
 
 Once signed up successfully, the account credentials will be written to the secure or insecure CSV database, depending on the chosen security setting:
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.002.png)
+![](./Screenshots/Screenshot2.png)
 
 Following up, you must still log in even just after creating the account, by inputting the correct credentials. 
 # User Features
 Once the user has logged in, they will see this landing page:
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.003.png)
+![](./Screenshots/Screenshot3.png)
 
 Account settings will allow the user to change password (with the same conditions as when first setting it), add payment details, remove payment details:
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.004.png)
+![](./Screenshots/Screenshot4.png)
 
 Products will allow the user to browse products on the online retail store and purchase them:
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.005.png)
+![](./Screenshots/Screenshot5.png)
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.006.png)
+![](./Screenshots/Screenshot6.png)
 
 In order for the user to purchase a product, they must first have inputted card details. Once the purchase option is selected, the program will check if card details are available and allow purchase if so.
 # Admin Features
@@ -41,14 +41,14 @@ PASSWORD: Pas$w0rd12345
 
 Once logged into an admin account, the User List option will be available in the landing page:
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.007.png)
+![](./Screenshots/Screenshot7.png)
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.008.png)
+![](./Screenshots/Screenshot8.png)
 
 The admin will see a list of every user except for themselves (in order to prevent accidental deletion or demotion of own account).
 
 Upon selection of user, there are the following options:
 
-![](Aspose.Words.de96e15e-e158-49cf-bba1-939f5266c709.009.png)
+![](./Screenshots/Screenshot9.png)
 
 This allows the admin to delete, promote and demote accounts from being admin. Every account with admin privileges is equal and has access to these options, allowing them to delete, promote or demote any other account.
