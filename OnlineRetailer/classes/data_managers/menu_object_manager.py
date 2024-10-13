@@ -34,8 +34,10 @@ class MenuObjectManager():
 
         self.logout_option = LogoutOption("Log Out", self.LOGOUT_DESCRIPTION, account_manager, self.landing_menu)
         self.account_settings_menu = NavigationMenu("Account Settings", "Change your account settings here.", account_manager)
-        self.change_password_option = ChangePassword("Change Password", "Change your password", account_manager, ["Old Password", "New Password"],database_manager, self.account_settings_menu, security_manager, self.hasher)
-        self.add_new_card_option = AddCardMenu("Add New Card", "Add new card (note: this will overwrite any previous card details).", account_manager, ["First Name", "Last Name", "Card Number (Without Hyphens)", "Expiration Date (mm/yy)", "CVC Code"] , database_manager, self.account_settings_menu, security_manager, self.hasher)
+        self.change_password_option = ChangePassword("Change Password", "Change your password", account_manager, ["Old Password", "New Password"],\
+            database_manager, self.account_settings_menu, security_manager, self.hasher)
+        self.add_new_card_option = AddCardMenu("Add New Card", "Add new card (note: this will overwrite any previous card details).", account_manager,\
+            ["First Name", "Last Name", "Card Number (Without Hyphens)", "Expiration Date (mm/yy)", "CVC Code"] , database_manager, self.account_settings_menu, security_manager, self.hasher)
         self.remove_card_option = RemoveCardDetailsOption("Remove Card", "Remove card currently on account.", account_manager, database_manager, self.account_settings_menu)
 
         self.user_list_menu = UserListMenu("(ADMIN ONLY) User List", "Please select a user (ADMIN ONLY MENU).", account_manager, database_manager, self.landing_menu)
@@ -45,7 +47,8 @@ class MenuObjectManager():
         self.product1_menu = Product("Product 1", "Product Description.", account_manager, 49.99, self.buy, self.products_menu)
         self.product2_menu = Product("Product 2", "Product Description.", account_manager, 12.99, self.buy, self.products_menu)
 
-        self.registration_menu = RegistrationMenu("Sign Up", self.REGISTRATION_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, self.landing_menu, security_manager, self.hasher)
+        self.registration_menu = RegistrationMenu("Sign Up", self.REGISTRATION_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, \
+            self.landing_menu, security_manager, self.hasher)
         self.login_menu = LoginMenu("Login", self.LOGIN_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, self.landing_menu, security_manager, self.hasher)
 
         #Define menu paths:

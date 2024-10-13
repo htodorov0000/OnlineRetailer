@@ -5,6 +5,7 @@ class AccountManager:
         self.logged_in = False
         self.username = ""
         self.admin = False
+        self.menu_object_manager = None
 
     def set_menu_object_manager(self, menu_object_manager):
         """For accessing menu_object_manager later."""

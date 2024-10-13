@@ -172,6 +172,7 @@ class ChangePassword(TextInputMenu):
         self.database_manager = database_manager
         self.security_manager = security_manager
         self.hasher = hasher
+        self.user_data = None
         super().__init__(name, description, account, input_queries, database_manager, previous_menu)
 
     def apply_user_input(self):
@@ -283,7 +284,7 @@ class AddCardMenu(TextInputMenu):
             print("Invalid CVC value type.")
             return False
         if len(user_input) != 3:
-            print("Invalid VCV entry.")
+            print("Invalid CVC entry.")
             return False
         return True
 

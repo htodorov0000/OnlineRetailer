@@ -40,6 +40,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="online_retailer.py" />
+    <Compile Include="test\test_returns.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="classes\" />
@@ -47,6 +48,7 @@
     <Folder Include="classes\data_managers\" />
     <Folder Include="classes\menu_options\" />
     <Folder Include="database\" />
+    <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="database\account_data_insecure.csv" />

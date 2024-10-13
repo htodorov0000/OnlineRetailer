@@ -6,6 +6,7 @@ class BuyOption(Menu):
     def __init__(self, name, description, account, database_manager, return_menu):
         self.database_manager = database_manager
         self.return_menu = return_menu
+        self.user_data = None
         super().__init__(name, description, account)
 
     def start(self):
