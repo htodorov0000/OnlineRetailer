@@ -36,18 +36,32 @@ class TextInputMenu(Menu):
     def apply_user_input(self):
         """To be used in child classes for applying
         given user input."""
-        pass
+        
 
 
 class RegistrationMenu(TextInputMenu):
     """Text input menu used for registering user account."""
     USERNAME_MIN_LENGTH = 6
     USERNAME_MAX_LENGTH = 20
+    MAX_ACCOUNTS_IN_DATABASE = 10
 
     def __init__(self, name, description, account, input_queries, database_manager, previous_menu, security_manager, hasher):
         self.security_manager = security_manager
         self.hasher = hasher
+        self.has_user_created_account = False
         super().__init__(name, description, account, input_queries, database_manager, previous_menu)
+
+    def start(self):
+        """Called when menu is to be drawn."""
+        #Check if account limit is reached:
+        if self.database_manager.get_user_count() >= self.MAX_ACCOUNTS_IN_DATABASE:
+            print("Maximum number of accounts reached. Please try again later.")
+            self.previous_menu.start()
+        #In security mode, check if user has already created account:
+        if self.security_manager.security and self.has_user_created_account:
+            print("Only one account allowed to be created per user.")
+            self.previous_menu.start()
+        super().start()
 
     def input_restriction(self, user_input, query):
         """Checks if user input is valid."""
@@ -87,10 +101,11 @@ class RegistrationMenu(TextInputMenu):
             salt = os.urandom(32)
             password_hash = self.hasher.hash(self.user_input[1], salt)
             self.database_manager.create_secure_account(username, password_hash, salt)
-            self.user_input = []
         else:
             self.database_manager.create_insecure_account(self.user_input[0], self.user_input[1])
         print("Account created successfully!")
+        self.user_input = []
+        self.has_user_created_account = True
 
 class LoginMenu(TextInputMenu):
     """Text input menu class for handling login process."""

@@ -107,6 +107,14 @@ class DatabaseManager:
         user_option_array.append(landing)
         return user_option_array
 
+    def get_user_count(self):
+        """Returns the total user count for currently
+        accessed database."""
+        csvfile = open(self.database, "r", encoding="utf-8", newline = "")
+        reader = csv.reader(csvfile)
+        data_list = list(reader)
+        return len(data_list) - 1 #Subtract the top row
+
     def is_user_admin(self, username):
         """Checks if user is admin."""
         data = self.find_user_row(username)

@@ -49,9 +49,9 @@ class MenuObjectManager():
         self.login_menu = LoginMenu("Login", self.LOGIN_DESCRIPTION, account_manager, ["Username" , "Password"], database_manager, self.landing_menu, security_manager, self.hasher)
 
         #Define menu paths:
-        self.DEFAULT_LANDING_OPTIONS = [self.registration_menu, self.login_menu]
-        self.USER_LANDING_OPTIONS = [self.products_menu, self.account_settings_menu, self.logout_option]
-        self.ADMIN_LANDING_OPTIONS = [self.products_menu, self.account_settings_menu, self.user_list_menu , self.logout_option]
+        self.default_landing_options = [self.registration_menu, self.login_menu]
+        self.user_landing_options = [self.products_menu, self.account_settings_menu, self.logout_option]
+        self.admin_landing_options = [self.products_menu, self.account_settings_menu, self.user_list_menu , self.logout_option]
 
         self.security_menu.options = [self.security_on_option, self.security_off_option]
 
@@ -65,12 +65,12 @@ class MenuObjectManager():
 
     def guest_menu_options(self):
         """Sets landing menu options for non-users."""
-        self.landing_menu.options = self.DEFAULT_LANDING_OPTIONS
+        self.landing_menu.options = self.default_landing_options
 
     def user_menu_options(self):
         """Sets landing menu options for users."""
-        self.landing_menu.options = self.USER_LANDING_OPTIONS
+        self.landing_menu.options = self.user_landing_options
 
     def admin_menu_options(self):
         """Sets landing menu options for admins."""
-        self.landing_menu.options = self.ADMIN_LANDING_OPTIONS
+        self.landing_menu.options = self.admin_landing_options

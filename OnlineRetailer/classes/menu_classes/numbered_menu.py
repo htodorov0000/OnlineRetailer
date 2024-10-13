@@ -35,7 +35,7 @@ class NumberedMenu(Menu):
     def apply_chosen_option(self):
         """To be used to apply chosen option in classes extending this
         one."""
-        pass
+        
 
 class NavigationMenu(NumberedMenu):
     """Class which allows navigation between menus and selection of options."""
