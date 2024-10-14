@@ -1,5 +1,5 @@
 ﻿# Starting the program
-To start the program run the “online\_retailer.py” script. This is the only script which needs to be run to interface with the program.
+To start the program run the “online\_retailer.py” script. This is the only script which needs to be run directly by the user to interface with the program.
 
 The command line interface requires the user to input a number to navigate to the desired option. 
 

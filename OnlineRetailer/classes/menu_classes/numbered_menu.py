@@ -35,11 +35,14 @@ class NumberedMenu(Menu):
     def apply_chosen_option(self):
         """To be used to apply chosen option in classes extending this
         one."""
-        
 
 class NavigationMenu(NumberedMenu):
     """Class which allows navigation between menus and selection of options."""
     def __init__(self, name, description, account):
+        try:
+            self.options
+        except AttributeError:
+            self.options = []
         super().__init__(name, description, account)
 
     def start(self):

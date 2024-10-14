@@ -1,4 +1,3 @@
-import os
 import unittest
 from classes.hasher import Hasher
 from classes.menu_classes.text_input_menu import AddCardMenu, RegistrationMenu
