@@ -58,16 +58,16 @@ Finally, tests can be accessed by running the script within the “test” folde
 
 Please note that no scripts are used to perform any of the hacker attacks, and that evidence of their performance is included in the main report.
 
-#Attacks
+# Attacks
 
-#Brute-Force attack
+## Brute-Force attack
 
 In order to perform a bruteforce attack, simply attempt multiple failed logins. In security mode, this will be prevented via strong passwords and a rate limit on failed login attempts.
 
-#DoS attack
+## DoS attack
 
 To perform a DoS attack, create accounts until there are 10 in the database, upon which it will be impossible for users to create more. This is prevented in security mode as only one account can be created per runtime.
 
-#API Injection attack
+## API Injection attack
 
 In order to perform a formula injection, input a formula which can be ran in spreadsheet software such as Excel into the username or password field when creating account (password is better as it has no character limit). In secure mode, this is prevented, because passwords and card data are hashed, while usernames escape the characters which allow such formulas.
