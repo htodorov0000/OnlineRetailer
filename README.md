@@ -31,7 +31,7 @@ Products will allow the user to browse products on the online retail store and p
 
 ![](./Screenshots/Screenshot6.png)
 
-In order for the user to purchase a product, they must first have inputted card details. Once the purchase option is selected, the program will check if card details are available and allow purchase if so.
+In order for the user to purchase a product, they must first have inputted card details. This includes first and last name, card number (16 digits), expiration date (mm/yy), and CVC (3 digits). Once the purchase option is selected, the program will check if card details are available and allow purchase if so.
 # Admin Features
 The default admin account credentials are as follows:
 
