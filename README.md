@@ -56,3 +56,5 @@ This allows the admin to delete, promote and demote accounts from being admin. E
 
 
 Finally, tests can be accessed by running the script within the “test” folder. This contains several unittests used to test key functionality of the application.
+
+Please note that no scripts are used to perform any of the hacker attacks, and that evidence of their performance is included in the main report.
