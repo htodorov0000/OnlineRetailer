@@ -1,5 +1,5 @@
 ﻿# Starting the program
-To start the program run the “online\_retailer.py” script. This is the only script which directly interfaces with the program.
+To start the program run the “online\_retailer.py” script. This is the only script which needs to be run to interface with the program.
 
 The command line interface requires the user to input a number to navigate to the desired option. 
 
@@ -52,3 +52,7 @@ Upon selection of user, there are the following options:
 ![](./Screenshots/Screenshot9.png)
 
 This allows the admin to delete, promote and demote accounts from being admin. Every account with admin privileges is equal and has access to these options, allowing them to delete, promote or demote any other account.
+
+
+
+Finally, tests can be accessed by running the script within the “test” folder. This contains several unittests used to test key functionality of the application.
