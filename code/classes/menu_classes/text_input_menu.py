@@ -75,12 +75,14 @@ class RegistrationMenu(TextInputMenu):
             #Escape characters which allow CSV injections:
             if "=" in username or "+" in username or "-" in username or "@" in username or "," in username or ";" in username or "'" in username or '"' in username or " " in username or "\t" in username:
                 print("The following characters are not allowed in a username: =+-@,;'" + '"' + "spaces, tabs.")
+                self.user_input = []
                 return False
         if len(username) < self.USERNAME_MIN_LENGTH or len(username) > self.USERNAME_MAX_LENGTH:
             print("Username must be between ", str(self.USERNAME_MIN_LENGTH), " and ", str(self.USERNAME_MAX_LENGTH), " characters long.")
             return False
         if self.database_manager.is_username_taken(username):
             print("Username is already taken.")
+            self.user_input = []
             return False
         return True
 
@@ -90,6 +92,7 @@ class RegistrationMenu(TextInputMenu):
         if self.security_manager.security:
             if not re.fullmatch("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{12,}$", user_input):
                 print("Password too weak. Passwords require 12+ characters, an uppercase and lowercase letter, a number, and a special character (#?!@$%^&*-)")
+                self.user_input = []
                 return False
         return True
 
@@ -181,6 +184,7 @@ class ChangePassword(TextInputMenu):
             self.change_password_secure()
         else:
             self.change_password_insecure()
+        self.user_input = []
 
     def change_password_secure(self):
         """Changes password when security mode is on."""
@@ -204,6 +208,7 @@ class ChangePassword(TextInputMenu):
                 if self.user_data["Password"] == user_input:
                     return True
             print("Old password incorrect.")
+            self.user_input = []
             return False
         if query == "New Password":
             return self.password_input_restriction(user_input)
@@ -213,6 +218,7 @@ class ChangePassword(TextInputMenu):
         if self.security_manager.security:
             if not re.fullmatch("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{12,}$", user_input):
                 print("Password too weak. Passwords require 12+ characters, an uppercase and lowercase letter, a number, and a special character (#?!@$%^&*-)")
+                self.user_input = []
                 return False
         print("Password has been changed successfully.")
         return True
