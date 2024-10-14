@@ -11,7 +11,7 @@ The security setting cannot be changed after startup, the program will need to b
 # Signing up and logging in
 After picking the security setting, you will be placed onto the landing page, which is the main page of the software. To make a new account, select the Sign Up option. You will be prompted to input a username and a password. With security mode off, the username must be between 6 and 20 characters long, but there are no other restrictions, and the password can be any length, even empty. With security mode on, the username may not include any of the following characters: =+-@,;'" or spaces/tabs, while the password requires 12+ characters, a lowercase letter, an uppercase letter, a digit, and one of the following special symbols: #?!@$%^&\*-
 
-Once signed up successfully, the account credentials will be written to the secure or insecure CSV database, depending on the chosen security setting:
+Once signed up successfully, the account credentials will be written to the secure or insecure CSV database, depending on the chosen security setting. These files are located within the database folder:
 
 ![](./Screenshots/Screenshot2.png)
 
